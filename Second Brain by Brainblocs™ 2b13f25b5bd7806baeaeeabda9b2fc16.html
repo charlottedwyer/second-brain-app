@@ -1,0 +1,711 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Second Brain by Brainblocs™</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2b13f25b-5bd7-806b-aeae-eabda9b2fc16" class="page sans"><header><img class="page-cover-image" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/SECOND_BRAIN_DARK.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Brianoku_Logo_2.png"/></div><h1 class="page-title">Second Brain by Brainblocs™</h1><p class="page-description"></p></header><div class="page-body"><div id="2b13f25b-5bd7-81f3-8f8d-f41e7496f43d" class="column-list"><div id="2b13f25b-5bd7-816a-8c4c-c440f79b79c6" style="width:25%" class="column"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2b13f25b-5bd7-8124-ad22-d79697faecd1"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/flash_red.svg"/></div><div style="width:100%"><p id="2b13f25b-5bd7-8142-a475-fbb6e48361dc" class="">This is the personal version. To follow the full setup process and use this system properly, you can <a href="https://realfounders.substack.com/p/second-brain-installation-tutorial">access the guide here.</a></p></div></figure><h2 id="2b13f25b-5bd7-8161-8e34-d5838b114580" class="">Quick Capture</h2><hr id="2b13f25b-5bd7-81fb-82c3-d7a191fc11e7"/><p id="2b13f25b-5bd7-81f5-8c3b-ca6f1f09fd71" class="">
+</p><h2 id="2b13f25b-5bd7-81b9-a95d-cd4a333bb99b" class="">🙏 A small favor</h2><hr id="2b13f25b-5bd7-81d0-b321-f139cc645173"/><p id="2b13f25b-5bd7-8100-a106-f38dba85d23f" class="">If this template has been useful to you, please consider leaving a review on the Notion Marketplace.</p><p id="2b13f25b-5bd7-815a-b37c-ed3865dbbac4" class="">Your rating costs nothing and helps me a lot to keep creating.</p><p id="2b13f25b-5bd7-8115-92ab-e5b57e6ca6d7" class="">If you have any questions, feel free to contact me at <strong>info@josemardlin.com</strong>.</p><p id="2b13f25b-5bd7-815a-85ca-c5389576efa3" class="">
+</p></div><div id="2b13f25b-5bd7-81ee-9f33-f8166de7d424" style="width:75%" class="column"><h2 id="2b13f25b-5bd7-8164-a93d-e5ac8c998d2d" class=""> My Areas</h2><hr id="2b13f25b-5bd7-815d-ba3c-e65b03ffc701"/><div id="2b13f25b-5bd7-8145-b497-e3264a69262a" class="collection-content"><h4 class="collection-title">Areas Perfect Brain™ DB</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Areas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/photo-landscape_gray.svg" style="width:14px;height:14px;display:block"/></span>Cover</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/push-pin_gray.svg" style="width:14px;height:14px;display:block"/></span>Quick Access</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Scope</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/grid_gray.svg" style="width:14px;height:14px;display:block"/></span>Subareas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/categories_gray.svg" style="width:14px;height:14px;display:block"/></span>Typology</th></tr></thead><tbody><tr id="2b13f25b-5bd7-8165-a9de-d266f70d3f40"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness%202b13f25b5bd78165a9ded266f70d3f40.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/activity_red.svg"/>A. Health &amp; Wellness</a></td><td class="cell-pPwZ"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%201%20Exercise%202b13f25b5bd781088facf199e64a1f5f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/activity_red.svg"/>A.1. Exercise</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%202%20Food%202b13f25b5bd78168a036c33743b0c996.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/activity_red.svg"/>A.2. Food</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%203%20Sleep%202b13f25b5bd781b6b2aafefd8af1e0b9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/activity_red.svg"/>A.3. Sleep</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%204%20Mental%20Health%202b13f25b5bd781e080f4fcbb56639f1c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/activity_red.svg"/>A.4. Mental Health</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness/A.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness/A.png" alt="A.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness/Salud_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness/Salud_Cover_Gris_Oscuro.png" alt="Salud Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness/Salud_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness/Salud_Cover_Gris_Claro.png" alt="Salud Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness/Salud_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%20Health%20&amp;%20Wellness/Salud_Cover_Black.png" alt="Salud Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-8112-86b0-db1ed4b1f953"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth%202b13f25b5bd7811286b0db1ed4b1f953.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-northeast_red.svg"/>B. Personal Growth</a></td><td class="cell-pPwZ"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%201%20Reading%202b13f25b5bd78108a3c2ed2007fdd4df.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-northeast_red.svg"/>B.1. Reading</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%202%20Courses%20and%20Learning%202b13f25b5bd781d09c3cd06195baee80.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-northeast_red.svg"/>B.2. Courses and Learning</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%203%20Skill%20Development%202b13f25b5bd7815ebf77d58c9f6dc596.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-northeast_red.svg"/>B.3. Skill Development</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%204%20Reflection%20&amp;%20Journaling%202b13f25b5bd781748cdbe696472bd24a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-northeast_red.svg"/>B.4. Reflection &amp; Journaling</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth/B.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth/B.png" alt="B.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth/Crecimiento_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth/Crecimiento_Cover_Gris_Oscuro.png" alt="Crecimiento Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth/Crecimiento_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth/Crecimiento_Cover_Gris_Claro.png" alt="Crecimiento Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth/Crecimiento_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%20Personal%20Growth/Crecimiento_Cover_Black.png" alt="Crecimiento Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-8153-9d2c-d61e4ec0dfeb"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships%202b13f25b5bd781539d2cd61e4ec0dfeb.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/heart_red.svg"/>C. Relationships</a></td><td class="cell-pPwZ"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%201%20Family%202b13f25b5bd7819ba346cf0a1660a2f0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/heart_red.svg"/>C.1. Family</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%202%20Children%202b13f25b5bd7818aa87aedffc146f969.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/heart_red.svg"/>C.2. Children</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%203%20Friends%202b13f25b5bd78172844be123b936ea7d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/heart_red.svg"/>C.3. Friends</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%204%20Networking%202b13f25b5bd7814183fcc8b5a21cdd7b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/heart_red.svg"/>C.4. Networking</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships/C.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships/C.png" alt="C.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships/Relaciones_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships/Relaciones_Cover_Gris_Oscuro.png" alt="Relaciones Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships/Relaciones_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships/Relaciones_Cover_Gris_Claro.png" alt="Relaciones Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships/Relaciones_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/C%20Relationships/Relaciones_Cover_Black.png" alt="Relaciones Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-8187-8c8b-da6e44827613"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances%202b13f25b5bd781878c8bda6e44827613.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/currency_red.svg"/>D. Personal Finances</a></td><td class="cell-pPwZ"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%201%20Budgeting%202b13f25b5bd781868e29db800835ee27.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/currency_red.svg"/>D.1. Budgeting</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%202%20Investments%202b13f25b5bd78169b8a5c28871c549c0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/currency_red.svg"/>D.2. Investments</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%203%20Savings%202b13f25b5bd781aa9fdec01b19c3108e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/currency_red.svg"/>D.3. Savings</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%204%20Debt%202b13f25b5bd7816791dacaeba8d05b9e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/currency_red.svg"/>D.4. Debt</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances/D.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances/D.png" alt="D.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances/Finanzas_Personales_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances/Finanzas_Personales_Cover_Gris_Oscuro.png" alt="Finanzas Personales Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances/Finanzas_Personales_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances/Finanzas_Personales_Cover_Gris_Claro.png" alt="Finanzas Personales Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances/Finanzas_Personales_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%20Personal%20Finances/Finanzas_Personales_Cover_Black.png" alt="Finanzas Personales Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-8164-89b0-fe82aa6026d5"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life%202b13f25b5bd7816489b0fe82aa6026d5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/home_red.svg"/>E. Home &amp; Daily Life</a></td><td class="cell-pPwZ"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%201%20Home%20Maintenance%202b13f25b5bd7816b9469cdeeb9e12731.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/home_red.svg"/>E.1. Home Maintenance</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%202%20Organization%202b13f25b5bd7814097c5d8441f997936.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/home_red.svg"/>E.2. Organization</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%203%20Shopping%20&amp;%20Supplies%202b13f25b5bd7819e8804ed7480fe8a31.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/home_red.svg"/>E.3. Shopping &amp; Supplies</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%204%20Household%20Tasks%202b13f25b5bd7818ea11fdcecc2e02c23.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/home_red.svg"/>E.4. Household Tasks</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life/E.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life/E.png" alt="E.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life/Hogar_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life/Hogar_Cover_Gris_Oscuro.png" alt="Hogar Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life/Hogar_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life/Hogar_Cover_Gris_Claro.png" alt="Hogar Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life/Hogar_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/E%20Home%20&amp;%20Daily%20Life/Hogar_Cover_Black.png" alt="Hogar Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-8143-9f81-dade3450be4a"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity%202b13f25b5bd781439f81dade3450be4a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/extension_red.svg"/>F. Leisure &amp; Creativity</a></td><td class="cell-pPwZ"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%201%20Personal%20Projects%202b13f25b5bd781f69774e15d80070bfc.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/extension_red.svg"/>F.1. Personal Projects</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%202%20Art%20and%20Crafts%202b13f25b5bd781c7b452fb45af844d6d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/extension_red.svg"/>F.2. Art and Crafts</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%203%20Photography%202b13f25b5bd781ca8daee1fbe3e5dece.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/extension_red.svg"/>F.3. Photography</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%204%20Music%202b13f25b5bd781358bb0ec0ed92439cb.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/extension_red.svg"/>F.4. Music</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%205%20Fashion%202b13f25b5bd78140a450dc3fd03b00f2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/extension_red.svg"/>F.5. Fashion</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity/F.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity/F.png" alt="F.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity/Ocio_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity/Ocio_Cover_Gris_Oscuro.png" alt="Ocio Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity/Ocio_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity/Ocio_Cover_Gris_Claro.png" alt="Ocio Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity/Ocio_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/F%20Leisure%20&amp;%20Creativity/Ocio_Cover_Black.png" alt="Ocio Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-8123-a44d-e8859e1d4739"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure%202b13f25b5bd78123a44de8859e1d4739.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/compass_red.svg"/>G. Travel &amp; Adventure</a></td><td class="cell-pPwZ"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%202%20Places%20to%20Visit%202b13f25b5bd7819a8fc3e7e47ae83be2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/compass_red.svg"/>G.2. Places to Visit</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%203%20Travel%20Docs%202b13f25b5bd781d2ac5eff3893b14503.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/compass_red.svg"/>G.3. Travel Docs</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%201%20Trip%20Planning%202b13f25b5bd781d284f3dd154deff20e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/compass_red.svg"/>G.1. Trip Planning</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure/G.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure/G.png" alt="G.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure/Viajes_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure/Viajes_Cover_Gris_Oscuro.png" alt="Viajes Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure/Viajes_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure/Viajes_Cover_Gris_Claro.png" alt="Viajes Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure/Viajes_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/G%20Travel%20&amp;%20Adventure/Viajes_Cover_Black.png" alt="Viajes Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-8191-8980-e0b40cc41197"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection%202b13f25b5bd781918980e0b40cc41197.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/pentagon_red.svg"/>H. Spirituality &amp; Reflection</a></td><td class="cell-pPwZ">, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%202%20Spiritual%20Practices%202b13f25b5bd7811aa863e6873ad2f130.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/pentagon_red.svg"/>H.2. Spiritual Practices</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%201%20Meditation%202b13f25b5bd7818d8629d4d7659d4cd8.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/pentagon_red.svg"/>H.1. Meditation</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection/H.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection/H.png" alt="H.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection/Espiritualidad_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection/Espiritualidad_Cover_Gris_Oscuro.png" alt="Espiritualidad Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection/Espiritualidad_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection/Espiritualidad_Cover_Gris_Claro.png" alt="Espiritualidad Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection/Espiritualidad_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/H%20Spirituality%20&amp;%20Reflection/Espiritualidad_Cover_Black.png" alt="Espiritualidad Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-81d6-a02b-e8997b5de2fe"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)%202b13f25b5bd781d6a02be8997b5de2fe.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/computer-chip_red.svg"/>I. Technology &amp; Tools (Personal)</a></td><td class="cell-pPwZ"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%202%20Apps%20y%20Software%202b13f25b5bd7810cb0fec3c956bbf74c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/computer-chip_red.svg"/>I.2. Apps y Software</a>, , <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%201%20Device%20Management%202b13f25b5bd7811cb3e2f09805e2e1ec.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/computer-chip_red.svg"/>I.1. Device Management</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)/I.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)/I.png" alt="I.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)/Tecnologia_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)/Tecnologia_Cover_Gris_Oscuro.png" alt="Tecnología Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)/Tecnologia_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)/Tecnologia_Cover_Gris_Claro.png" alt="Tecnología Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)/Tecnologia_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)/Tecnologia_Cover_Black.png" alt="Tecnología Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr><tr id="2b13f25b-5bd7-810c-bad9-ea9293ffcbdd"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision%202b13f25b5bd7810cbad9ea9293ffcbdd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/user-circle-dashed_red.svg"/>J. Purpose &amp; Life Vision</a></td><td class="cell-pPwZ">, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%202%20Personal%20Mission%202b13f25b5bd781199243e7daeefcc08c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/user-circle-dashed_red.svg"/>J.2. Personal Mission</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%201%20Long-Term%20Goals%202b13f25b5bd7819aba12f7e5e8f36a4f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/user-circle-dashed_red.svg"/>J.1. Long-Term Goals</a></td><td class="cell-ixVQ"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision/J.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision/J.png" alt="J.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision/Proposito_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision/Proposito_Cover_Gris_Oscuro.png" alt="Propósito Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision/Proposito_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision/Proposito_Cover_Gris_Claro.png" alt="Propósito Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision/Proposito_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/J%20Purpose%20&amp;%20Life%20Vision/Proposito_Cover_Black.png" alt="Propósito Cover Black.png"/></a></span></td><td class="cell-BGyU"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-ciY&gt;"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-[RlF"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Active</span></td><td class="cell-{?X&gt;"></td><td class="cell-F_qE"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Panel%20Perfect%20Brain%E2%84%A2%20DB/Areas%202b13f25b5bd781ac992aeef8a7a37bbf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></td></tr></tbody></table><br/><br/></div><h2 id="2b13f25b-5bd7-812e-a201-d5342af882df" class="">Featured Tasks</h2><hr id="2b13f25b-5bd7-8105-a972-f0bf383c390c"/><h3 id="2b13f25b-5bd7-81a1-93b0-e1c1c4525b7f" class="">Today (Actions)</h3><div id="2b13f25b-5bd7-8181-b602-e2fcb7371a57" class="collection-content"><h4 class="collection-title">Actions DB</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Areas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/photo-landscape_gray.svg" style="width:14px;height:14px;display:block"/></span>Cover</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/folder_gray.svg" style="width:14px;height:14px;display:block"/></span>Projects</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Due Date</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Created time</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/flag-pennant_gray.svg" style="width:14px;height:14px;display:block"/></span>Priority</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark_gray.svg" style="width:14px;height:14px;display:block"/></span>Tasks</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>URL</th></tr></thead><tbody><tr id="2b13f25b-5bd7-8179-9e45-c3bde6285965"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203%202b13f25b5bd781799e45c3bde6285965.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/verified_red.svg"/>Action 3</a></td><td class="cell-^XuT"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/B%203%20Skill%20Development%202b13f25b5bd7815ebf77d58c9f6dc596.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-northeast_red.svg"/>B.3. Skill Development</a></td><td class="cell-mayN"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Claro.png" alt="Acciones Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Oscuro.png" alt="Acciones Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Black.png" alt="Acciones Cover Black.png"/></a></span></td><td class="cell-^MeL"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-ccKZ"></td><td class="cell-N}BW"><time>@13 March 2025</time></td><td class="cell-n@A_"><time>@21 November 2025 00:32</time></td><td class="cell-@^&gt;d"><span class="selected-value select-value-color-default">4. Eliminate/Minimize</span></td><td class="cell-lQGG"></td><td class="cell-w?QQ"></td></tr><tr id="2b13f25b-5bd7-81ed-a9b5-c526b2cfdd07"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%202%202b13f25b5bd781eda9b5c526b2cfdd07.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/verified_red.svg"/>Action 2</a></td><td class="cell-^XuT"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%20Technology%20&amp;%20Tools%20(Personal)%202b13f25b5bd781d6a02be8997b5de2fe.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/computer-chip_red.svg"/>I. Technology &amp; Tools (Personal)</a></td><td class="cell-mayN"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Claro.png" alt="Acciones Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Oscuro.png" alt="Acciones Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Black.png" alt="Acciones Cover Black.png"/></a></span></td><td class="cell-^MeL"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-ccKZ"></td><td class="cell-N}BW"><time>@13 March 2025</time></td><td class="cell-n@A_"><time>@21 November 2025 00:32</time></td><td class="cell-@^&gt;d"><span class="selected-value select-value-color-orange">2. Important/Plan</span></td><td class="cell-lQGG"></td><td class="cell-w?QQ"></td></tr><tr id="2b13f25b-5bd7-810d-bbf5-c3c08c50874a"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Acction%201%202b13f25b5bd7810dbbf5c3c08c50874a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/verified_red.svg"/>Acction 1</a></td><td class="cell-^XuT"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%202%20Investments%202b13f25b5bd78169b8a5c28871c549c0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/currency_red.svg"/>D.2. Investments</a></td><td class="cell-mayN"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Claro.png" alt="Acciones Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Oscuro.png" alt="Acciones Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Black.png" alt="Acciones Cover Black.png"/></a></span></td><td class="cell-^MeL"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-ccKZ"></td><td class="cell-N}BW"><time>@13 March 2025</time></td><td class="cell-n@A_"><time>@21 November 2025 00:32</time></td><td class="cell-@^&gt;d"><span class="selected-value select-value-color-red">1. Urgent/Important</span></td><td class="cell-lQGG"></td><td class="cell-w?QQ"></td></tr><tr id="2b13f25b-5bd7-811d-8cef-e60a76eb7eeb"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%20(Template)%202b13f25b5bd7811d8cefe60a76eb7eeb.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/verified_red.svg"/>Action (Template)</a></td><td class="cell-^XuT"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%201%20Budgeting%202b13f25b5bd781868e29db800835ee27.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/currency_red.svg"/>D.1. Budgeting</a></td><td class="cell-mayN"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Claro.png" alt="Acciones Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Gris_Oscuro.png" alt="Acciones Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Actions%20DB/Action%203/Acciones_Cover_Black.png" alt="Acciones Cover Black.png"/></a></span></td><td class="cell-^MeL"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-ccKZ"></td><td class="cell-N}BW"><time>@13 March 2025</time></td><td class="cell-n@A_"><time>@21 November 2025 00:32</time></td><td class="cell-@^&gt;d"><span class="selected-value select-value-color-yellow">3. Urgent/Delegate</span></td><td class="cell-lQGG"></td><td class="cell-w?QQ"></td></tr></tbody></table><br/><br/></div><hr id="2b13f25b-5bd7-8196-8f1c-db6d0a0e1328"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Upcoming Tasks</summary><div class="indented"><div id="2b13f25b-5bd7-816c-aa33-fcc57efbb037" class="collection-content"><h4 class="collection-title">Tasks DB</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Areas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark_gray.svg" style="width:14px;height:14px;display:block"/></span>Related Tasks</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/flag-pennant_gray.svg" style="width:14px;height:14px;display:block"/></span>Priority</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Due Date</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>URL</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Creation Date</th></tr></thead><tbody><tr id="2b13f25b-5bd7-8184-abf2-ebce79032e10"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%203%202b13f25b5bd78184abf2ebce79032e10.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task 3</a></td><td class="cell-djDc"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-iJFw"></td><td class="cell-Wwzp"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%202%202b13f25b5bd7819a9dbcc1d48b8f7f5b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task 2</a>, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%20Example%206%202b13f25b5bd781d08f54d7a719969bfd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task Example 6</a></td><td class="cell-uRCP"><span class="selected-value select-value-color-red">1. Urgent/Important</span></td><td class="cell-DcL]"><time>@27 November 2024</time></td><td class="cell-@=tB"></td><td class="cell-VhsP"><time>@21 November 2025 00:32</time></td></tr><tr id="2b13f25b-5bd7-8118-99ac-e7d918d5a26d"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%205%202b13f25b5bd7811899ace7d918d5a26d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task 5</a></td><td class="cell-djDc"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-iJFw">, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/I%201%20Device%20Management%202b13f25b5bd7811cb3e2f09805e2e1ec.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/computer-chip_red.svg"/>I.1. Device Management</a></td><td class="cell-Wwzp"></td><td class="cell-uRCP"><span class="selected-value select-value-color-yellow">3. Urgent/Delegate</span></td><td class="cell-DcL]"><time>@13 November 2024</time></td><td class="cell-@=tB"></td><td class="cell-VhsP"><time>@21 November 2025 00:32</time></td></tr><tr id="2b13f25b-5bd7-819a-9dbc-c1d48b8f7f5b"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%202%202b13f25b5bd7819a9dbcc1d48b8f7f5b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task 2</a></td><td class="cell-djDc"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-iJFw">, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/D%201%20Budgeting%202b13f25b5bd781868e29db800835ee27.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/currency_red.svg"/>D.1. Budgeting</a></td><td class="cell-Wwzp"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%203%202b13f25b5bd78184abf2ebce79032e10.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task 3</a></td><td class="cell-uRCP"><span class="selected-value select-value-color-red">1. Urgent/Important</span></td><td class="cell-DcL]"><time>@18 November 2024</time></td><td class="cell-@=tB"></td><td class="cell-VhsP"><time>@21 November 2025 00:32</time></td></tr><tr id="2b13f25b-5bd7-81d0-8f54-d7a719969bfd"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%20Example%206%202b13f25b5bd781d08f54d7a719969bfd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task Example 6</a></td><td class="cell-djDc"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-iJFw"></td><td class="cell-Wwzp"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%203%202b13f25b5bd78184abf2ebce79032e10.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task 3</a></td><td class="cell-uRCP"><span class="selected-value select-value-color-default">4. Eliminate/Minimize</span></td><td class="cell-DcL]"><time>@11 November 2024</time></td><td class="cell-@=tB"></td><td class="cell-VhsP"><time>@21 November 2025 00:32</time></td></tr><tr id="2b13f25b-5bd7-819b-8dd9-d56ac98a3b5c"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Tasks%20DB/Simple%20Task%204%202b13f25b5bd7819b8dd9d56ac98a3b5c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Simple Task 4</a></td><td class="cell-djDc"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-iJFw"></td><td class="cell-Wwzp"></td><td class="cell-uRCP"><span class="selected-value select-value-color-orange">2. Important/Plan</span></td><td class="cell-DcL]"><time>@12 November 2024</time></td><td class="cell-@=tB"></td><td class="cell-VhsP"><time>@21 November 2025 00:32</time></td></tr></tbody></table><br/><br/></div></div></details><hr id="2b13f25b-5bd7-81ea-832f-ee84094b6aa6"/><h2 id="2b13f25b-5bd7-8178-8b2c-d5e7952d5d25" class="">Projects</h2><hr id="2b13f25b-5bd7-819e-8199-c9604d0393ce"/><div id="2b13f25b-5bd7-81da-a99c-e9cf747af611" class="collection-content"><h4 class="collection-title">Projects DB</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Areas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Due Date</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/hashtag_gray.svg" style="width:14px;height:14px;display:block"/></span>Completion Level</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Creation Date</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/flag-pennant_gray.svg" style="width:14px;height:14px;display:block"/></span>Priority</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>URL</th></tr></thead><tbody><tr id="2b13f25b-5bd7-8105-b318-d287d5c9e390"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Projects%20DB/New%20Project%20C%202b13f25b5bd78105b318d287d5c9e390.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/folder_red.svg"/>New Project C</a></td><td class="cell-X[LH"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-~yWL"></td><td class="cell-]ovd"><time>@15 November 2024</time></td><td class="cell-|x==">0</td><td class="cell-LtM]"><time>@21 November 2025 00:32</time></td><td class="cell-tEJT"><span class="selected-value select-value-color-default">4. Eliminate/Minimize</span></td><td class="cell-ek\]"></td></tr><tr id="2b13f25b-5bd7-8185-b806-c6c07fec7e39"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Projects%20DB/New%20Project%20E%202b13f25b5bd78185b806c6c07fec7e39.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/folder_red.svg"/>New Project E</a></td><td class="cell-X[LH"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Not Started</span></td><td class="cell-~yWL"></td><td class="cell-]ovd"><time>@20 November 2024</time></td><td class="cell-|x==">0</td><td class="cell-LtM]"><time>@21 November 2025 00:32</time></td><td class="cell-tEJT"><span class="selected-value select-value-color-red">1. Urgent/Important</span></td><td class="cell-ek\]"></td></tr><tr id="2b13f25b-5bd7-8162-9885-fe40d4ca7edb"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Projects%20DB/New%20Project%20A%202b13f25b5bd781629885fe40d4ca7edb.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/folder_red.svg"/>New Project A</a></td><td class="cell-X[LH"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>In Progress</span></td><td class="cell-~yWL"></td><td class="cell-]ovd"><time>@11 November 2024</time></td><td class="cell-|x==">20</td><td class="cell-LtM]"><time>@21 November 2025 00:32</time></td><td class="cell-tEJT"><span class="selected-value select-value-color-red">1. Urgent/Important</span></td><td class="cell-ek\]"></td></tr><tr id="2b13f25b-5bd7-81be-ad72-f21233a4bc46"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Projects%20DB/New%20Project%20D%202b13f25b5bd781bead72f21233a4bc46.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/folder_red.svg"/>New Project D</a></td><td class="cell-X[LH"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>In Progress</span></td><td class="cell-~yWL"></td><td class="cell-]ovd"><time>@25 November 2024</time></td><td class="cell-|x==">20</td><td class="cell-LtM]"><time>@21 November 2025 00:32</time></td><td class="cell-tEJT"><span class="selected-value select-value-color-orange">2. Important/Plan</span></td><td class="cell-ek\]"></td></tr></tbody></table><br/><br/></div><h2 id="2b13f25b-5bd7-8135-91be-cf6311822e39" class="">Resources &amp; References</h2><hr id="2b13f25b-5bd7-81ea-a8f3-da31d9e08223"/><div id="2b13f25b-5bd7-81a0-a46e-cfc8d1cde55e" class="collection-content"><h4 class="collection-title">Resources DB</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Areas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/user-circle-filled_gray.svg" style="width:14px;height:14px;display:block"/></span>Author/Source</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Creation Date</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Topic</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/push-pin_gray.svg" style="width:14px;height:14px;display:block"/></span>Quick Access</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/photo-landscape_gray.svg" style="width:14px;height:14px;display:block"/></span>Cover</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Resource Type</th></tr></thead><tbody><tr id="2b13f25b-5bd7-8146-87f8-c6c7df669415"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)%202b13f25b5bd7814687f8c6c7df669415.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/bookmark_red.svg"/>New Resource (Example)</a></td><td class="cell-K@ve"><span class="status-value select-value-color-gray"><div class="status-dot status-dot-color-gray"></div>Archived</span></td><td class="cell-HFQj"></td><td class="cell-;}hW"></td><td class="cell-R^Um"><time>@21 November 2025 00:32</time></td><td class="cell-:B&lt;J"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Topics%20DB/Travel%202b13f25b5bd78191bceef030cbabf628.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/tag_gray.svg"/>Travel</a></td><td class="cell-~hFb"><span class="selected-value select-value-color-green">Pinned</span></td><td class="cell-Qnp}"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Gris_Claro.png" alt="Recursos Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Gris_Oscuro.png" alt="Recursos Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Black.png" alt="Recursos Cover Black.png"/></a></span></td><td class="cell-Dicp"><span class="selected-value select-value-color-yellow">Resource</span></td></tr><tr id="2b13f25b-5bd7-8130-b84f-cb4113487d9b"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)%202b13f25b5bd78130b84fcb4113487d9b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/link_red.svg"/>New Reference (Example)</a></td><td class="cell-K@ve"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Not Started</span></td><td class="cell-HFQj">, <a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%202%20Food%202b13f25b5bd78168a036c33743b0c996.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/activity_red.svg"/>A.2. Food</a></td><td class="cell-;}hW"></td><td class="cell-R^Um"><time>@21 November 2025 00:32</time></td><td class="cell-:B&lt;J"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Topics%20DB/Fashion%202b13f25b5bd7818e9d01fd487764f85e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/tag_gray.svg"/>Fashion</a></td><td class="cell-~hFb"><span class="selected-value select-value-color-green">Pinned</span></td><td class="cell-Qnp}"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Gris_Claro.png" alt="Referencia Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Gris_Oscuro.png" alt="Referencia Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Black.png" alt="Referencia Cover Black.png"/></a></span></td><td class="cell-Dicp"><span class="selected-value select-value-color-yellow">Reference</span></td></tr><tr id="2b13f25b-5bd7-815b-a935-de1c482fb6dc"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)%202b13f25b5bd7815ba935de1c482fb6dc.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/bookmark_red.svg"/>New Resource (Example)</a></td><td class="cell-K@ve"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Not Started</span></td><td class="cell-HFQj"></td><td class="cell-;}hW"></td><td class="cell-R^Um"><time>@21 November 2025 00:32</time></td><td class="cell-:B&lt;J"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Topics%20DB/Japan%202b13f25b5bd781f9b12cdd53dee9e90d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/tag_gray.svg"/>Japan</a></td><td class="cell-~hFb"><span class="selected-value select-value-color-green">Pinned</span></td><td class="cell-Qnp}"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Gris_Claro.png" alt="Recursos Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Gris_Oscuro.png" alt="Recursos Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Resource%20(Example)/Recursos_Cover_Black.png" alt="Recursos Cover Black.png"/></a></span></td><td class="cell-Dicp"><span class="selected-value select-value-color-yellow">Resource</span></td></tr><tr id="2b13f25b-5bd7-81df-a3c0-c0c7522df4a3"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)%202b13f25b5bd781dfa3c0c0c7522df4a3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/link_red.svg"/>New Reference (Example)</a></td><td class="cell-K@ve"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Not Started</span></td><td class="cell-HFQj"></td><td class="cell-;}hW"></td><td class="cell-R^Um"><time>@21 November 2025 00:32</time></td><td class="cell-:B&lt;J"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Topics%20DB/Food%202b13f25b5bd781c381f2e7e8b8500755.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/tag_gray.svg"/>Food</a></td><td class="cell-~hFb"><span class="selected-value select-value-color-green">Pinned</span></td><td class="cell-Qnp}"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Gris_Claro.png" alt="Referencia Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Gris_Oscuro.png" alt="Referencia Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Resources%20DB/New%20Reference%20(Example)/Referencia_Cover_Black.png" alt="Referencia Cover Black.png"/></a></span></td><td class="cell-Dicp"><span class="selected-value select-value-color-yellow">Reference</span></td></tr></tbody></table><br/><br/></div><h2 id="2b13f25b-5bd7-8165-ab6c-c4bd6664a6cc" class="">Notes &amp; Lists</h2><hr id="2b13f25b-5bd7-81ac-90c2-e78e08f25bef"/><div id="2b13f25b-5bd7-81f2-8586-cef53ad9a593" class="collection-content"><h4 class="collection-title">Notes DB</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Topics or Types</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Creation Date</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/push-pin_gray.svg" style="width:14px;height:14px;display:block"/></span>Quick Access</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Area</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/photo-landscape_gray.svg" style="width:14px;height:14px;display:block"/></span>Cover</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Note Type</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/folder_gray.svg" style="width:14px;height:14px;display:block"/></span>Projects</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/bookmark_gray.svg" style="width:14px;height:14px;display:block"/></span>Resources</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Scope</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th></tr></thead><tbody><tr id="2b13f25b-5bd7-8156-a910-e95c831ac477"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note%202b13f25b5bd78156a910e95c831ac477.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_red.svg"/>New Note</a></td><td class="cell-`NoT"></td><td class="cell-OtGT"><time>@21 November 2025 00:32</time></td><td class="cell-p^[W"><span class="selected-value select-value-color-green">Pinned</span></td><td class="cell-:oAf"></td><td class="cell-\RQ|"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Gris_Claro.png" alt="Nota Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Gris_Oscuro.png" alt="Nota Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Black.png" alt="Nota Cover Black.png"/></a></span></td><td class="cell-OzCQ"><span class="selected-value select-value-color-yellow">Note</span></td><td class="cell-Ny~C"></td><td class="cell-zUmJ"></td><td class="cell-:ZEV"><span class="selected-value select-value-color-yellow">Business</span></td><td class="cell-:uEA"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Draft</span></td></tr><tr id="2b13f25b-5bd7-8157-a3ad-ecd350741ba3"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List%202b13f25b5bd78157a3adecd350741ba3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_red.svg"/>New Fast List</a></td><td class="cell-`NoT"></td><td class="cell-OtGT"><time>@21 November 2025 00:32</time></td><td class="cell-p^[W"><span class="selected-value select-value-color-red">Unpinned</span></td><td class="cell-:oAf"></td><td class="cell-\RQ|"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Simple_Perfecto_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Simple_Perfecto_Cover_Gris_Claro.png" alt="Checklist Simple Perfecto Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Simple_Perfecto_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Simple_Perfecto_Cover_Gris_Oscuro.png" alt="Checklist Simple Perfecto Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Cover_Black.png" alt="Checklist Cover Black.png"/></a></span></td><td class="cell-OzCQ"><span class="selected-value select-value-color-yellow">Checklist</span></td><td class="cell-Ny~C"></td><td class="cell-zUmJ"></td><td class="cell-:ZEV"></td><td class="cell-:uEA"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Draft</span></td></tr><tr id="2b13f25b-5bd7-815f-bba2-fa4144b162f3"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List%202b13f25b5bd7815fbba2fa4144b162f3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_red.svg"/>New Fast List</a></td><td class="cell-`NoT"></td><td class="cell-OtGT"><time>@21 November 2025 00:32</time></td><td class="cell-p^[W"><span class="selected-value select-value-color-green">Pinned</span></td><td class="cell-:oAf"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Areas%20Perfect%20Brain%E2%84%A2%20DB/A%202%20Food%202b13f25b5bd78168a036c33743b0c996.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/activity_red.svg"/>A.2. Food</a></td><td class="cell-\RQ|"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Simple_Perfecto_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Simple_Perfecto_Cover_Gris_Claro.png" alt="Checklist Simple Perfecto Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Simple_Perfecto_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Simple_Perfecto_Cover_Gris_Oscuro.png" alt="Checklist Simple Perfecto Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Fast%20List/Checklist_Cover_Black.png" alt="Checklist Cover Black.png"/></a></span></td><td class="cell-OzCQ"><span class="selected-value select-value-color-yellow">Checklist</span></td><td class="cell-Ny~C"></td><td class="cell-zUmJ"></td><td class="cell-:ZEV"><span class="selected-value select-value-color-yellow">Personal</span></td><td class="cell-:uEA"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Draft</span></td></tr><tr id="2b13f25b-5bd7-81fd-bdf6-c3af78af19b9"><td class="cell-title"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note%202b13f25b5bd781fdbdf6c3af78af19b9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_red.svg"/>New Note</a></td><td class="cell-`NoT"></td><td class="cell-OtGT"><time>@21 November 2025 00:32</time></td><td class="cell-p^[W"><span class="selected-value select-value-color-green">Pinned</span></td><td class="cell-:oAf"></td><td class="cell-\RQ|"><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Gris_Claro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Gris_Claro.png" alt="Nota Cover Gris Claro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Gris_Oscuro.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Gris_Oscuro.png" alt="Nota Cover Gris Oscuro.png"/></a></span><span style="margin-inline-end:6px"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Black.png"><img style="width:20px;max-height:24px" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases/Notes%20DB/New%20Note/Nota_Cover_Black.png" alt="Nota Cover Black.png"/></a></span></td><td class="cell-OzCQ"><span class="selected-value select-value-color-yellow">Note</span></td><td class="cell-Ny~C"></td><td class="cell-zUmJ"></td><td class="cell-:ZEV"><span class="selected-value select-value-color-yellow">Business</span></td><td class="cell-:uEA"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Draft</span></td></tr></tbody></table><br/><br/></div></div></div><p id="2b13f25b-5bd7-8182-bc68-e2a18c4d51cd" class="">
+</p><div id="2b13f25b-5bd7-8185-ac43-fe2aeed7dad9" class="column-list"><div id="2b13f25b-5bd7-819a-9b1b-c485fe5a4789" style="width:25%" class="column"><h3 id="2b13f25b-5bd7-8178-a8d0-d7f92a00076d" class="">Panels</h3><hr id="2b13f25b-5bd7-81de-a83c-f829698a6924"/><figure id="2b13f25b-5bd7-8155-91f8-deb13e431da3" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/PARA%20Panel%202b13f25b5bd7815591f8deb13e431da3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/categories_red.svg"/>PARA Panel </a></figure><figure id="2b13f25b-5bd7-8147-9a96-c785bdb72ff2" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Projects%20y%20Tasks%202b13f25b5bd781479a96c785bdb72ff2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Projects y Tasks</a></figure><figure id="2b13f25b-5bd7-81f8-b109-cb830568a5df" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Knowledge%20Library%202b13f25b5bd781f8b109cb830568a5df.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/library_red.svg"/>Knowledge Library</a></figure><figure id="2b13f25b-5bd7-81df-a144-edb5dafd4bf6" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Weekly%20Review%202b13f25b5bd781dfa144edb5dafd4bf6.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/search_red.svg"/>Weekly Review</a></figure><figure id="2b13f25b-5bd7-810b-b640-fd3ab3d5b64b" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Asset%20Converter%202b13f25b5bd7810bb640fd3ab3d5b64b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/sync_red.svg"/>Asset Converter</a></figure><p id="2b13f25b-5bd7-8196-bf66-d2c6c03b870b" class="">
+</p></div><div id="2b13f25b-5bd7-81e8-931b-ebfe3e7407f2" style="width:25%" class="column"><h3 id="2b13f25b-5bd7-8130-aac5-f69d78857d1e" class="">Productivity</h3><hr id="2b13f25b-5bd7-8162-b437-c27ff6b5075a"/><figure id="2b13f25b-5bd7-8189-a81d-d4b968f9d58a" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Inbox%202b13f25b5bd78189a81dd4b968f9d58a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/inbox_red.svg"/>Inbox</a></figure><figure id="2b13f25b-5bd7-8120-8fe8-dedd28f1abe4" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Areas%202b13f25b5bd781208fe8dedd28f1abe4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/layers_red.svg"/>Areas</a></figure><figure id="2b13f25b-5bd7-819b-88a8-e3470fb98d6a" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Goals%202b13f25b5bd7819b88a8e3470fb98d6a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/target_red.svg"/>Goals</a></figure><figure id="2b13f25b-5bd7-8104-9b20-e56323635f2e" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Projects%202b13f25b5bd781049b20e56323635f2e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/folder_red.svg"/>Projects</a></figure><figure id="2b13f25b-5bd7-81e4-9ab8-e41bc1d9554a" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Tasks%202b13f25b5bd781e49ab8e41bc1d9554a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark_red.svg"/>Tasks</a></figure><figure id="2b13f25b-5bd7-81a4-af10-e26c08e2e456" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Actions%202b13f25b5bd781a4af10e26c08e2e456.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/verified_red.svg"/>Actions</a></figure><figure id="2b13f25b-5bd7-8180-a895-f7f745ae1c13" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Events%202b13f25b5bd78180a895f7f745ae1c13.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/calendar_red.svg"/>Events</a></figure></div><div id="2b13f25b-5bd7-818a-b232-f107df10308e" style="width:25%" class="column"><h3 id="2b13f25b-5bd7-81f8-a6ca-c9941ee101de" class="">Knowledge</h3><hr id="2b13f25b-5bd7-81f9-a249-cab4e7b765f6"/><figure id="2b13f25b-5bd7-818d-b53c-fe9206de0059" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Databases%202b13f25b5bd7818db53cfe9206de0059.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/database_red.svg"/>Databases</a></figure><figure id="2b13f25b-5bd7-8159-88d4-d2031427ca5f" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Resources%20&amp;%20References%202b13f25b5bd7815988d4d2031427ca5f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/bookmark_red.svg"/>Resources &amp; References</a></figure><figure id="2b13f25b-5bd7-81e1-8fe7-f9c25c648de4" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Notes%202b13f25b5bd781e18fe7f9c25c648de4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_red.svg"/>Notes</a></figure><figure id="2b13f25b-5bd7-81a9-8189-fdd45d613f87" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Reading%20List%202b13f25b5bd781a98189fdd45d613f87.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/book-closed_red.svg"/>Reading List</a></figure><figure id="2b13f25b-5bd7-81a9-8589-dfaff0c44b84" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Bookmarks%202b13f25b5bd781a98589dfaff0c44b84.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/bookmark-outline_red.svg"/>Bookmarks</a></figure><figure id="2b13f25b-5bd7-81c7-9e72-f2687873171b" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Topics%202b13f25b5bd781c79e72f2687873171b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/tag_red.svg"/>Topics</a></figure></div><div id="2b13f25b-5bd7-8139-bc6e-e48b8e0dd495" style="width:25%" class="column"><h3 id="2b13f25b-5bd7-81fa-b2f5-ff13f52e572b" class="">Results</h3><hr id="2b13f25b-5bd7-813c-a068-ef7a462a546d"/><figure id="2b13f25b-5bd7-81b2-af9c-e24902f8d7b9" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Brainblocs%E2%84%A2%20News%202b13f25b5bd781b2af9ce24902f8d7b9.html"><img class="icon" src="Second%20Brain%20by%20Brainblocs%E2%84%A2/Brainblocs%E2%84%A2%20News/Brainoku_Logo_Red.png"/>Brainblocs™ News</a></figure><figure id="2b13f25b-5bd7-817d-a9c6-c6232a0d7bf2" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Daily%20Log%202b13f25b5bd7817da9c6c6232a0d7bf2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/timeline_red.svg"/>Daily Log</a></figure><figure id="2b13f25b-5bd7-8111-926f-de605908127d" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Assets%202b13f25b5bd78111926fde605908127d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/infinity_red.svg"/>Assets</a></figure><figure id="2b13f25b-5bd7-8166-9a5a-e60d49791370" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Wishlists%202b13f25b5bd781669a5ae60d49791370.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/heart-outline_red.svg"/>Wishlists</a></figure><figure id="2b13f25b-5bd7-8189-83dc-d5383832029d" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Dump%202b13f25b5bd7818983dcd5383832029d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/delete_red.svg"/>Dump</a></figure><figure id="2b13f25b-5bd7-81c5-884c-fea7a2325442" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Archived%20DB%202b13f25b5bd781c5884cfea7a2325442.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/archive_red.svg"/>Archived DB</a></figure><figure id="2b13f25b-5bd7-816b-abf1-ef5a40bdb756" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Migration%202b13f25b5bd7816babf1ef5a40bdb756.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/transfers_red.svg"/>Migration</a></figure></div></div><hr id="2b13f25b-5bd7-81aa-990e-ffa06318c8e6"/><div id="2b13f25b-5bd7-81e2-abbe-f0a5de684e73" class="column-list"><div id="2b13f25b-5bd7-8114-862e-fe0f590b0d26" style="width:81.25%" class="column"><p id="2b13f25b-5bd7-819e-87b1-d9b72eec6769" class="">© 2025 <a href="https://realfounders.substack.com/">Real Founders</a> &amp; <a href="https://brainblocs.gumroad.com/">Brainblocs</a>™. All rights reserved.</p></div><div id="2b13f25b-5bd7-8138-b45c-d7bd17b1372c" style="width:18.750000000000004%" class="column"><figure id="2b13f25b-5bd7-8173-abd0-f01f24107610" class="link-to-page"><a href="Second%20Brain%20by%20Brainblocs%E2%84%A2/Second%20Brain%20by%20Brainblocs%E2%84%A2%202b13f25b5bd78173abd0f01f24107610.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/verified_gray.svg"/>Second Brain by Brainblocs™</a></figure></div></div><p id="2b13f25b-5bd7-8129-b45f-dcbd11f26d7d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
